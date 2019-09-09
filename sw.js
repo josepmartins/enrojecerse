@@ -26,26 +26,30 @@ workbox.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-d60a29a3542384b74bee.js"
+    "url": "webpack-runtime-b0e4ef98a5990eea64f5.js"
   },
   {
-    "url": "commons-592c1ad60c6ff217a91f.js"
+    "url": "commons-cf489a766aa0a767cb6b.js"
   },
   {
-    "url": "styles.5f81339daa9828444137.css"
+    "url": "styles.bc263ce8651c2307bdd6.css"
   },
   {
-    "url": "styles-00d3ea07aaa6d54f59dc.js"
+    "url": "styles-3d1d888f02b4c9555d9e.js"
   },
   {
-    "url": "app-5d010fe1108f374f6a4f.js"
+    "url": "app-898e26a75dfb908ea1db.js"
   },
   {
     "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-875d3dc02373d9ca184a.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "f209496576556f964d153df4fdd43277"
+    "revision": "b6be57cd21686c28626629a8abdc9799"
+  },
+  {
+    "url": "page-data/offline-plugin-app-shell-fallback/page-data.json",
+    "revision": "8178a367b5a2d5c2a23b1c02ddebd1a2"
   },
   {
     "url": "manifest.webmanifest",
@@ -68,12 +72,12 @@ const { NavigationRoute } = workbox.routing
 
 const navigationRoute = new NavigationRoute(async ({ event }) => {
   let { pathname } = new URL(event.request.url)
-  pathname = pathname.replace(new RegExp(`^`), ``)
+  pathname = pathname.replace(new RegExp(`^/enrojecerse`), ``)
 
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/app-5d010fe1108f374f6a4f.js`))) {
+  if (!resources || !(await caches.match(`/enrojecerse/app-898e26a75dfb908ea1db.js`))) {
     return await fetch(event.request)
   }
 
@@ -86,7 +90,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
     }
   }
 
-  const offlineShell = `/offline-plugin-app-shell-fallback/index.html`
+  const offlineShell = `/enrojecerse/offline-plugin-app-shell-fallback/index.html`
   return await caches.match(offlineShell)
 })
 
