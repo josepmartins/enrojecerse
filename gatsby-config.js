@@ -1,8 +1,7 @@
 module.exports = {
-  pathPrefix: "/enrojecerse",
   siteMetadata: {
     title: `Enrojecerse`,
-    author: `Kyle Mathews`,
+    author: `Enrojecerse`,
     description: `A starter blog demonstrating what Gatsby can do.`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
     social: {
@@ -69,11 +68,5 @@ module.exports = {
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`,
-      },
-    },
-  ],
+ ],
 }
