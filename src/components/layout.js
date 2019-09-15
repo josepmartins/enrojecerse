@@ -52,9 +52,7 @@ class Layout extends React.Component {
       <div
         style={{
           marginLeft: `auto`,
-          marginRight: `auto`,
-          maxWidth: '35rem',
-          padding: `2rem`,
+          marginRight: `auto`
         }}
       >
         <BaseStyles />
