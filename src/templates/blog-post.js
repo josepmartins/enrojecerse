@@ -7,18 +7,65 @@ import SEO from "../components/seo"
 import Image from "gatsby-image"
 import styled from "styled-components"
 
+
+const HeaderWrapper = styled.header`
+  margin-top: 18vh;
+  margin-bottom: 18vh;
+`
+
+const HeaderTitle = styled.div`
+  font-size: calc(56px + ((2 * (100vw - 720px)) / 304));
+  line-height: 115%;
+  font-style: italic;
+  letter-spacing: -1px;
+
+  @media (min-width: 1024px) {    
+    font-size: calc(64px + ((30 * (100vw - 1200px)) / 416));
+  }    
+`
+const HeaderSubTitle = styled.div`
+  font-size: calc(14px + ((2 * (100vw - 720px)) / 304));
+  font-style: italic;
+  margin-left: 5vw;
+  margin-top: 2vh;
+
+  @media (min-width: 1024px) {    
+    font-size: calc(12px + ((30 * (100vw - 1200px)) / 416));
+  }    
+`
+
 const Container = styled.div`
-  display: flex;
+  @media (min-width: 1024px) {    
+    display: flex;
+  }  
 `
 const ContainerCover = styled.div`
-  width: 100vh;
-  height: 100vh;
-  position: sticky;
-  top: 0;
+  width: 100%;
+  height: 25vh;
+  padding: 2vh 10vh 2vh 0;
+
+  @media (min-width: 1024px) {    
+    height: 100vh;
+    width: 50vw;
+    position: sticky;
+    top: 0;
+  }
 `
 const ContainerContent = styled.article`
   flex: 1;
-  padding: 4vw;
+  padding: 0vw 6vw 5vh 5vh;
+  
+  p {
+    font-size: calc(20px + ((1 * (100vw - 720px)) / 304));
+    margin-bottom: 3vh;
+    line-height: 145%;
+    
+    @media (min-width: 1024px) {    
+      font-size: calc(20px + ((8 * (100vw - 1024px)) / 416));
+      margin-bottom: 7vh;
+    }    
+  
+  }
 `
 
 class BlogPostTemplate extends React.Component {
@@ -34,7 +81,60 @@ class BlogPostTemplate extends React.Component {
           description={post.frontmatter.description || post.excerpt}
         />
         <Container>
-          <ContainerCover>
+          <ContainerContent>
+            <HeaderWrapper>
+              <Link to={`/`}>
+                <svg width="50" height="50" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+                  <filter id="displacementFilter">
+                    <feTurbulence type="turbulence" baseFrequency="0.6"
+                        numOctaves="50" result="turbulence"/>
+                    <feDisplacementMap in2="turbulence" in="SourceGraphic"
+                        scale="400" xChannelSelector="R" yChannelSelector="G"/>
+                  </filter>
+                  <circle cx="100" cy="100" r="100" fill="pink" style={{filter: "url(#displacementFilter)"}}/>
+                </svg>
+              </Link>
+
+
+              <HeaderTitle>
+                {post.frontmatter.title}
+              </HeaderTitle>
+              <HeaderSubTitle>
+                {post.frontmatter.author}
+              </HeaderSubTitle>
+            </HeaderWrapper>
+            <section dangerouslySetInnerHTML={{ __html: post.html }} />
+            <footer>
+              <Bio />
+            </footer>
+            <nav>
+              <ul
+                style={{
+                  display: `flex`,
+                  flexWrap: `wrap`,
+                  justifyContent: `space-between`,
+                  listStyle: `none`,
+                  padding: 0,
+                }}
+              >
+                <li>
+                  {previous && (
+                    <Link to={previous.fields.slug} rel="prev">
+                      ← {previous.frontmatter.title}
+                    </Link>
+                  )}
+                </li>
+                <li>
+                  {next && (
+                    <Link to={next.fields.slug} rel="next">
+                      {next.frontmatter.title} →
+                    </Link>
+                  )}
+                </li>
+              </ul>
+            </nav>
+            </ContainerContent>
+            <ContainerCover>
             {!!post.frontmatter.cover ? 
               <Image
                 fixed={post.frontmatter.cover.childImageSharp.sizes}
@@ -44,56 +144,6 @@ class BlogPostTemplate extends React.Component {
                 }}
               /> : null}
           </ContainerCover>
-            <ContainerContent>
-              <header>  
-                <h1
-                  style={{
-                    marginTop: '2rem',
-                    marginBottom: 0,
-                  }}
-                >
-                  {post.frontmatter.title}
-                </h1>
-                <p
-                  style={{
-                    display: `block`,
-                    marginBottom: '2rem',
-                  }}
-                >
-                  {post.frontmatter.date}
-                </p>
-              </header>
-              <section dangerouslySetInnerHTML={{ __html: post.html }} />
-              <footer>
-                <Bio />
-              </footer>
-              <nav>
-                <ul
-                  style={{
-                    display: `flex`,
-                    flexWrap: `wrap`,
-                    justifyContent: `space-between`,
-                    listStyle: `none`,
-                    padding: 0,
-                  }}
-                >
-                  <li>
-                    {previous && (
-                      <Link to={previous.fields.slug} rel="prev">
-                        ← {previous.frontmatter.title}
-                      </Link>
-                    )}
-                  </li>
-                  <li>
-                    {next && (
-                      <Link to={next.fields.slug} rel="next">
-                        {next.frontmatter.title} →
-                      </Link>
-                    )}
-                  </li>
-                </ul>
-              </nav>
-            </ContainerContent>
           </Container>
       </Layout>
     )
@@ -117,11 +167,12 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        author
         description
         cover {
           publicURL
           childImageSharp {
-            sizes(maxWidth: 600) {
+            sizes(maxWidth: 1000) {
               ...GatsbyImageSharpSizes
             }
           }

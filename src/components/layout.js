@@ -43,7 +43,9 @@ class Layout extends React.Component {
             }}
             to={`/`}
           >
-            {title}
+            <svg width="114" height="23" viewBox="0 0 114 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="9" cy="11" r="9" fill="pink" />
+            </svg>
           </Link>
         </h3>
       )
@@ -58,7 +60,7 @@ class Layout extends React.Component {
         <BaseStyles />
         <header>{header}</header>
         <main>{children}</main>
-        <footer>
+        <footer style={{display: `none`}}>
           © {new Date().getFullYear()}, Built with
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>

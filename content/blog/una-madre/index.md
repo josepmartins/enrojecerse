@@ -1,6 +1,7 @@
 ---
 title: Una madre
 date: "2015-05-01T22:12:03.284Z"
+author: "Alejandro Palomas"
 description: "Este año podría decir que Alejandro Palomas se está convirtiendo en mi autor revelación: primero conocí a Guille, luego a Nazia y ahora a Amalia y su familia. Y aunque no estoy leyendo las publicaciones siguiendo su cronología literaria, mi admiración por este escritor va in crescendo."
 cover: './una_madre.jpg'
 ---

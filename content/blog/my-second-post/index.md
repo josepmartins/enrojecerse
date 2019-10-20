@@ -1,6 +1,7 @@
 ---
-title: My Second Post!
+title: Una madre de Alejandro Palomas
 date: "2015-05-06T23:46:37.121Z"
+author: "Alejandro Palomas"
 cover: './una_madre.jpg'
 ---
 
