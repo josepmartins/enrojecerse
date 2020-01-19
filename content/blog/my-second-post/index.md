@@ -1,8 +1,8 @@
 ---
-title: Una madre de Alejandro Palomas
+title: La cancion de los vivos y los muertos
 date: "2015-05-06T23:46:37.121Z"
-author: "Alejandro Palomas"
-cover: './una_madre.jpg'
+author: "Jesmyn Ward"
+cover: './la-cancion-de-los-vivos-y-los-muertos.jpg'
 ---
 
 ssss! I love blogging so much already.

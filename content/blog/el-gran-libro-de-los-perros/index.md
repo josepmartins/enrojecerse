@@ -1,9 +1,9 @@
 ---
-title: New Beginnings
+title: El gran libro de los perros
 date: "2015-05-28T22:40:32.169Z"
-author: "Alejandro Palomas"
+author: "Editado por Jorge de Cascante e ilustrador por Alexander Reverdin"
 description: This is a custom description for SEO and Open Graph purposes, rather than the default generated excerpt. Simply add a description field to the frontmatter.
-cover: './una_madre.jpg'
+cover: './cover3.jpg'
 ---
 
 Far far away, behind the word mountains, far from the countries Vokalia and
