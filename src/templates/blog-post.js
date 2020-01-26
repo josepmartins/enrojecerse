@@ -14,8 +14,14 @@ const Logo = styled.svg`
 `
 
 const HeaderWrapper = styled.header`
-  margin-top: 18vh;
-  margin-bottom: 18vh;
+  margin-top: 5vh;
+
+  @media (min-width: 1024px) {
+    position: sticky;
+    top: 18vh;
+    margin-top: 18vh;
+  }
+
 `
 
 const HeaderTitle = styled.div`
@@ -24,9 +30,9 @@ const HeaderTitle = styled.div`
   font-style: italic;
   letter-spacing: -1px;
 
-  @media (min-width: 1024px) {    
+  @media (min-width: 1024px) {
     font-size: calc(64px + ((30 * (100vw - 1200px)) / 416));
-  }    
+  }
 `
 const HeaderSubTitle = styled.div`
   font-size: calc(14px + ((2 * (100vw - 720px)) / 304));
@@ -34,42 +40,55 @@ const HeaderSubTitle = styled.div`
   margin-left: 5vw;
   margin-top: 2vh;
 
-  @media (min-width: 1024px) {    
+  @media (min-width: 1024px) {
     font-size: calc(12px + ((30 * (100vw - 1200px)) / 416));
-  }    
+  }
 `
 
 const Container = styled.div`
-  @media (min-width: 1024px) {    
+  @media (min-width: 1024px) {
     display: flex;
-  }  
+  }
 `
 const ContainerCover = styled.div`
   width: 100%;
-  height: 25vh;
-  padding: 2vh 10vh 2vh 0;
+  height: 40vh;
+  margin-bottom: 15vh;
 
-  @media (min-width: 1024px) {    
-    height: 100vh;
-    width: 50vw;
-    position: sticky;
-    top: 0;
+  @media (min-width: 1024px) {
+    height: 50vh;
   }
 `
 const ContainerContent = styled.article`
-  flex: 1;
-  padding: 0vw 6vw 5vh 5vh;
-  
+  padding: 4vh 10vh 4vh 0;
+
+  @media (min-width: 1024px) {
+    width: 50vw;
+  }
+
   p {
     font-size: calc(20px + ((1 * (100vw - 720px)) / 304));
     margin-bottom: 3vh;
     line-height: 145%;
-    
-    @media (min-width: 1024px) {    
+
+    @media (min-width: 1024px) {
       font-size: calc(20px + ((8 * (100vw - 1024px)) / 416));
       margin-bottom: 7vh;
-    }    
-  
+    }
+  }
+
+  p:first-child:first-letter {
+    font-size: 250%;
+  }
+`
+
+const ContainerTitle = styled.article`
+  flex: 1;
+  padding: 0vw 6vw 5vh 5vh;
+
+  @media (min-width: 1024px) {
+    position: sticky;
+    top: 0;
   }
 `
 
@@ -86,7 +105,7 @@ class BlogPostTemplate extends React.Component {
           description={post.frontmatter.description || post.excerpt}
         />
         <Container>
-          <ContainerContent>
+          <ContainerTitle>
             <HeaderWrapper>
               <Link to={`/`}>
                 <Logo width="50" height="50" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
@@ -108,7 +127,7 @@ class BlogPostTemplate extends React.Component {
                 {post.frontmatter.author}
               </HeaderSubTitle>
             </HeaderWrapper>
-            <section dangerouslySetInnerHTML={{ __html: post.html }} />
+            {/* <section dangerouslySetInnerHTML={{ __html: post.html }} />
             <footer>
               <Bio />
             </footer>
@@ -137,18 +156,50 @@ class BlogPostTemplate extends React.Component {
                   )}
                 </li>
               </ul>
-            </nav>
+            </nav> */}
+            </ContainerTitle>
+            <ContainerContent>
+              <ContainerCover>
+              {!!post.frontmatter.cover ?
+                <Image
+                  fixed={post.frontmatter.cover.childImageSharp.sizes}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                  }}
+                /> : null}
+            </ContainerCover>
+              <section dangerouslySetInnerHTML={{ __html: post.html }} />
+                <footer>
+                  <Bio />
+                </footer>
+                <nav>
+                  <ul
+                    style={{
+                      display: `flex`,
+                      flexWrap: `wrap`,
+                      justifyContent: `space-between`,
+                      listStyle: `none`,
+                      padding: 0,
+                    }}
+                  >
+                    <li>
+                      {previous && (
+                        <Link to={previous.fields.slug} rel="prev">
+                          ← {previous.frontmatter.title}
+                        </Link>
+                      )}
+                    </li>
+                    <li>
+                      {next && (
+                        <Link to={next.fields.slug} rel="next">
+                          {next.frontmatter.title} →
+                        </Link>
+                      )}
+                    </li>
+                  </ul>
+                </nav>
             </ContainerContent>
-            <ContainerCover>
-            {!!post.frontmatter.cover ? 
-              <Image
-                fixed={post.frontmatter.cover.childImageSharp.sizes}
-                style={{
-                  width: '100%',
-                  height: '100%',
-                }}
-              /> : null}
-          </ContainerCover>
           </Container>
       </Layout>
     )
