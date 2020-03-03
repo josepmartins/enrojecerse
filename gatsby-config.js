@@ -1,5 +1,4 @@
 module.exports = {
-  pathPrefix: "/enrojecerse",
   siteMetadata: {
     title: `Enrojecerse | blog de reseñas literarias`,
     author: `Enrojecerse`,
