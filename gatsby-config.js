@@ -1,12 +1,13 @@
 module.exports = {
   pathPrefix: "/enrojecerse",
   siteMetadata: {
-    title: `Enrojecerse`,
+    title: `Enrojecerse | blog de reseñas literarias`,
     author: `Enrojecerse`,
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    description: `¿Te gustan los libros? Enrojecerse es mi blog literario con reseñas, libros y novedades literarias.`,
+    siteUrl: `https://enrojecerse.com/`,
     social: {
-      twitter: `kylemathews`,
+      instagram: `enrojecerse`,
+      goodreads: `enrojecerse`
     },
   },
   plugins: [

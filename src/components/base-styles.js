@@ -32,6 +32,7 @@ const BaseStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
     color: rgba(0, 0, 0, 0.84);
+    background-color: #FFFEFC;
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

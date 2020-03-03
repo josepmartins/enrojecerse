@@ -23,7 +23,8 @@ const Bio = () => {
         siteMetadata {
           author
           social {
-            twitter
+            instagram,
+            goodreads
           }
         }
       }
@@ -52,12 +53,19 @@ const Bio = () => {
         }}
       />
       <p>
-        Written by <strong>{author}</strong> who lives and works in San
-        Francisco building useful things.
-        {` `}
-        <a href={`https://twitter.com/${social.twitter}`}>
-          You should follow him on Twitter
-        </a>
+        <small>
+          Soy Laura y me encanta leer y escribir. Puedes seguirme en
+          {` `}
+          <a href={`https://instagram.com/${social.instagram}`}>
+            Instagram
+          </a>
+          {` `}
+          y
+          {` `}
+          <a href={`https://goodreads.com/${social.goodreads}`}>
+            Goodreads
+          </a>
+        </small>
       </p>
     </div>
   )
