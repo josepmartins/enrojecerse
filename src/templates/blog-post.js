@@ -11,6 +11,7 @@ import styled from "styled-components"
 const Logo = styled.svg`
   border-radius: 50%;
   margin-bottom: 5vh;
+  transform: translate(0,0);
 `
 
 const HeaderWrapper = styled.header`
@@ -109,13 +110,24 @@ class BlogPostTemplate extends React.Component {
             <HeaderWrapper>
               <Link to={`/`}>
                 <Logo width="50" height="50" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
-                  <filter id="displacementFilter">
-                    <feTurbulence type="turbulence" baseFrequency="0.6"
-                        numOctaves="50" result="turbulence"/>
-                    <feDisplacementMap in2="turbulence" in="SourceGraphic"
-                        scale="400" xChannelSelector="R" yChannelSelector="G"/>
-                  </filter>
-                  <circle cx="100" cy="100" r="120" fill="pink" style={{filter: "url(#displacementFilter)"}}/>
+                  <defs>
+                    <filter id="displacementFilter">
+
+                      <feTurbulence numOctaves="22" type="turbulence" baseFrequency="0.6" result="turbulence"/> */}
+                      <feDisplacementMap in2="turbulence" in="SourceGraphic"
+                          scale="280" xChannelSelector="R" yChannelSelector="G"/>
+
+
+                      {/* <feTurbulence type="turbulence" baseFrequency="0.6"
+                          numOctaves="50" result="turbulence"/> */} */}
+
+                      {/* <feDisplacementMap in2="turbulence" in="SourceGraphic"
+                          scale="400" xChannelSelector="R" yChannelSelector="G"/> */}
+                    </filter>
+                  </defs>
+                  <g filter= "url(#displacementFilter)">
+                    <circle cx="100" cy="100" r="120" fill="pink"/>
+                  </g>
                 </Logo>
               </Link>
 
