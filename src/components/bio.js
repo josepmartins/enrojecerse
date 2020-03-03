@@ -52,21 +52,19 @@ const Bio = () => {
           borderRadius: `50%`,
         }}
       />
-      <p>
-        <small>
-          Soy Laura y me encanta leer y escribir. Puedes seguirme en
-          {` `}
-          <a href={`https://instagram.com/${social.instagram}`}>
-            Instagram
-          </a>
-          {` `}
-          y
-          {` `}
-          <a href={`https://goodreads.com/${social.goodreads}`}>
-            Goodreads
-          </a>
-        </small>
-      </p>
+      <small>
+        Soy Laura y me encanta leer y escribir. Puedes seguirme en
+        {` `}
+        <a href={`https://instagram.com/${social.instagram}`}>
+          Instagram
+        </a>
+        {` `}
+        y
+        {` `}
+        <a href={`https://goodreads.com/${social.goodreads}`}>
+          Goodreads
+        </a>
+      </small>
     </div>
   )
 }

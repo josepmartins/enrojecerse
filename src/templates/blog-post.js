@@ -3,16 +3,10 @@ import { Link, graphql } from "gatsby"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
+import Logo from "../components/logo"
 import SEO from "../components/seo"
 import Image from "gatsby-image"
 import styled from "styled-components"
-
-
-const Logo = styled.svg`
-  border-radius: 50%;
-  margin-bottom: 5vh;
-  transform: translate(0,0);
-`
 
 const HeaderWrapper = styled.header`
   margin-top: 5vh;
@@ -108,29 +102,7 @@ class BlogPostTemplate extends React.Component {
         <Container>
           <ContainerTitle>
             <HeaderWrapper>
-              <Link to={`/`}>
-                <Logo width="50" height="50" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <filter id="displacementFilter">
-
-                      <feTurbulence numOctaves="22" type="turbulence" baseFrequency="0.6" result="turbulence"/> */}
-                      <feDisplacementMap in2="turbulence" in="SourceGraphic"
-                          scale="280" xChannelSelector="R" yChannelSelector="G"/>
-
-
-                      {/* <feTurbulence type="turbulence" baseFrequency="0.6"
-                          numOctaves="50" result="turbulence"/> */} */}
-
-                      {/* <feDisplacementMap in2="turbulence" in="SourceGraphic"
-                          scale="400" xChannelSelector="R" yChannelSelector="G"/> */}
-                    </filter>
-                  </defs>
-                  <g filter= "url(#displacementFilter)">
-                    <circle cx="100" cy="100" r="120" fill="pink"/>
-                  </g>
-                </Logo>
-              </Link>
-
+              <Logo />
 
               <HeaderTitle>
                 {post.frontmatter.title}
@@ -180,7 +152,7 @@ class BlogPostTemplate extends React.Component {
                     height: '100%',
                   }}
                 /> : null}
-            </ContainerCover>
+              </ContainerCover>
               <section dangerouslySetInnerHTML={{ __html: post.html }} />
                 <footer>
                   <Bio />

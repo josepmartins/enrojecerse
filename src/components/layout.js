@@ -17,11 +17,6 @@ class Layout extends React.Component {
           }}
         >
           <Link
-            style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
-            }}
             to={`/`}
           >
             {title}
@@ -59,7 +54,7 @@ class Layout extends React.Component {
         }}
       >
         <BaseStyles />
-        <header>{header}</header>
+        {/* <header>{header}</header> */}
         <main>{children}</main>
         <footer style={{display: `none`}}>
           © {new Date().getFullYear()}, Built with
