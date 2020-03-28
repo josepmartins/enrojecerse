@@ -8,59 +8,75 @@ import SEO from "../components/seo"
 import Image from "gatsby-image"
 import styled from "styled-components"
 
-const HeaderWrapper = styled.header`
-  margin-top: 5vh;
+const Date = styled.small`
+  position: fixed;
+  top: 3vh;
+  right: 3vh;
+  z-index: 999;
+`
+const Header = styled.header`
+  padding-bottom: 10vh;
+`
+const Content = styled.div`
+  width: 90vw;
+  max-width: 50rem;
+  margin: 0 auto;
+  padding-bottom: 20vh;
+
+  @media (min-width: 1024px) {
+    width: 50vw;
+  }
+`
+const HeaderContent = styled.div`
+  text-align: center;
+  padding-top: 15vh;
 
   @media (min-width: 1024px) {
     position: sticky;
-    top: 18vh;
-    margin-top: 18vh;
+    top: 0;
   }
-
 `
-
 const HeaderTitle = styled.div`
-  font-size: calc(56px + ((2 * (100vw - 720px)) / 304));
-  line-height: 115%;
-  font-style: italic;
-  letter-spacing: -1px;
+  font-size: calc(48px + ((2 * (100vw - 720px)) / 304));
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+  margin: 0 auto;
+  width: 80vw;
 
   @media (min-width: 1024px) {
-    font-size: calc(64px + ((30 * (100vw - 1200px)) / 416));
+    font-size: calc(88px + ((30 * (100vw - 1200px)) / 416));
+    width: 80vw;
   }
 `
 const HeaderSubTitle = styled.div`
   font-size: calc(14px + ((2 * (100vw - 720px)) / 304));
   font-style: italic;
-  margin-left: 5vw;
-  margin-top: 2vh;
-
-  @media (min-width: 1024px) {
-    font-size: calc(12px + ((30 * (100vw - 1200px)) / 416));
-  }
-`
-
-const Container = styled.div`
-  @media (min-width: 1024px) {
-    display: flex;
-  }
-`
-const ContainerCover = styled.div`
-  width: 100%;
-  height: 40vh;
-  margin-bottom: 15vh;
-
-  @media (min-width: 1024px) {
-    height: 50vh;
-  }
-`
-const ContainerContent = styled.article`
-  padding: 4vh 10vh 4vh 0;
+  margin: 0 auto;
+  width: 80vw;
 
   @media (min-width: 1024px) {
     width: 50vw;
+    font-size: calc(12px + ((30 * (100vw - 1200px)) / 416));
   }
+`
+const HeaderImage = styled.div`
+  width: 80vw;
+  height: 50vh;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+  margin-top: 5vh;
 
+  @media (min-width: 1024px) {
+    height: 80vh;
+    width: 50vw;
+    position: relative;
+    z-index: -1;
+    margin-bottom: 30vh;
+  }
+`
+const Section = styled.section`
   p {
     font-size: calc(20px + ((1 * (100vw - 720px)) / 304));
     margin-bottom: 3vh;
@@ -68,22 +84,8 @@ const ContainerContent = styled.article`
 
     @media (min-width: 1024px) {
       font-size: calc(20px + ((8 * (100vw - 1024px)) / 416));
-      margin-bottom: 7vh;
+      margin-bottom: 5vh;
     }
-  }
-
-  p:first-child:first-letter {
-    font-size: 250%;
-  }
-`
-
-const ContainerTitle = styled.article`
-  flex: 1;
-  padding: 0vw 6vw 5vh 5vh;
-
-  @media (min-width: 1024px) {
-    position: sticky;
-    top: 0;
   }
 `
 
@@ -99,92 +101,57 @@ class BlogPostTemplate extends React.Component {
           title={post.frontmatter.image}
           description={post.frontmatter.description || post.excerpt}
         />
-        <Container>
-          <ContainerTitle>
-            <HeaderWrapper>
-              <Logo />
-
-              <HeaderTitle>
-                {post.frontmatter.title}
-              </HeaderTitle>
-              <HeaderSubTitle>
-                {post.frontmatter.author}
-              </HeaderSubTitle>
-            </HeaderWrapper>
-            {/* <section dangerouslySetInnerHTML={{ __html: post.html }} />
-            <footer>
-              <Bio />
-            </footer>
-            <nav>
-              <ul
+        <Logo />
+        <Date>{post.frontmatter.date}</Date>
+        <Header>
+          <HeaderContent>
+            <HeaderTitle> {post.frontmatter.title}</HeaderTitle>
+            <HeaderSubTitle>{post.frontmatter.author}</HeaderSubTitle>
+          </HeaderContent>
+          <HeaderImage>
+            {!!post.frontmatter.cover ?
+              <Image
+                fixed={post.frontmatter.cover.childImageSharp.sizes}
                 style={{
-                  display: `flex`,
-                  flexWrap: `wrap`,
-                  justifyContent: `space-between`,
-                  listStyle: `none`,
-                  padding: 0,
+                  width: '100%',
+                  height: '100%',
                 }}
-              >
-                <li>
-                  {previous && (
-                    <Link to={previous.fields.slug} rel="prev">
-                      ← {previous.frontmatter.title}
-                    </Link>
-                  )}
-                </li>
-                <li>
-                  {next && (
-                    <Link to={next.fields.slug} rel="next">
-                      {next.frontmatter.title} →
-                    </Link>
-                  )}
-                </li>
-              </ul>
-            </nav> */}
-            </ContainerTitle>
-            <ContainerContent>
-              <ContainerCover>
-              {!!post.frontmatter.cover ?
-                <Image
-                  fixed={post.frontmatter.cover.childImageSharp.sizes}
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                  }}
-                /> : null}
-              </ContainerCover>
-              <section dangerouslySetInnerHTML={{ __html: post.html }} />
-                <footer>
-                  <Bio />
-                </footer>
-                <nav>
-                  <ul
-                    style={{
-                      display: `flex`,
-                      flexWrap: `wrap`,
-                      justifyContent: `space-between`,
-                      listStyle: `none`,
-                      padding: 0,
-                    }}
-                  >
-                    <li>
-                      {previous && (
-                        <Link to={previous.fields.slug} rel="prev">
-                          ← {previous.frontmatter.title}
-                        </Link>
-                      )}
-                    </li>
-                    <li>
-                      {next && (
-                        <Link to={next.fields.slug} rel="next">
-                          {next.frontmatter.title} →
-                        </Link>
-                      )}
-                    </li>
-                  </ul>
-                </nav>
-            </ContainerContent>
-          </Container>
+              /> : null}
+          </HeaderImage>
+        </Header>
+
+
+        <Content>
+          <Section dangerouslySetInnerHTML={{ __html: post.html }} />
+          <Bio />
+          <nav>
+            <ul
+              style={{
+                display: `flex`,
+                flexWrap: `wrap`,
+                justifyContent: `space-between`,
+                listStyle: `none`,
+                padding: 0,
+              }}
+            >
+              <li>
+                {previous && (
+                  <Link to={previous.fields.slug} rel="prev">
+                    ← {previous.frontmatter.title}
+                  </Link>
+                )}
+              </li>
+              <li>
+                {next && (
+                  <Link to={next.fields.slug} rel="next">
+                    {next.frontmatter.title} →
+                  </Link>
+                )}
+              </li>
+            </ul>
+          </nav>
+        </Content>
+
       </Layout>
     )
   }
@@ -206,7 +173,7 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "D MMMM YYYY", locale: "es")
         author
         description
         cover {

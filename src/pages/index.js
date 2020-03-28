@@ -1,109 +1,140 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
-import Bio from "../components/bio"
-import Image from "gatsby-image"
 import Layout from "../components/layout"
 import Logo from "../components/logo"
 import SEO from "../components/seo"
 import styled from "styled-components"
 
-const IndexLayout = styled.div`
-  margin: 5vh 5vh 20vh;
-`
-const ImageWrapper = styled.div`
-  position: fixed;
-  width: 33.3333%;
-  bottom: 2.5vh;
-  top: 2.5vh;
-  left: 0;
-  z-index: -1;
-  transition: 1.5s ease-out;
-  opacity: 0;
-`
-
-const HeaderTitle = styled.div`
-  font-size: calc(56px + ((2 * (100vw - 720px)) / 304));
-  line-height: 115%;
-  font-style: italic;
-  letter-spacing: -1px;
-  text-align: center;
-  margin-bottom: 10vh;
-
-  & > a{
-    text-decoration: none;
-  }
-
-  &:hover{
-    ${ImageWrapper}{
-      opacity: 1;
-      transition: 0.25s ease;
-    }
-  }
+const HomeLayout = styled.div`
+  display: flex;
+  flex-direction: column;
 
   @media (min-width: 1024px) {
-    font-size: calc(64px + ((30 * (100vw - 1200px)) / 416));
+    flex-direction: row;
   }
 `
-const ArticleWrapper = styled.article`
-`
-const ArticleList = styled.div`
-  ${ArticleWrapper}:nth-child(2n + 2) {
-    ${ImageWrapper}{left: 33.3333%;}
-  }
+const Intro = styled.div`
+  flex: 1;
+  padding-left: calc(5vh + 40px);
+  padding-top: calc(3vh + 5px);
 
-  ${ArticleWrapper}:nth-child(3n + 3) {
-    ${ImageWrapper}{left: 66.6666%;}
+  @media (min-width: 1024px) {
+    position: sticky;
+    top: 0;
+    width: 33.333%;
+    display: table;
+    flex: none;
+    padding-right: 2.5vw;
   }
 `
+const IntroSmall = styled.small`
+  letter-spacing: -0.05em;
+  display: block;
+  margin-bottom: 0.5vh;
+`
+const IndexLayout = styled.div`
+  flex: 1;
+  padding: 10vh 5vw 40vh;
+
+  @media (min-width: 1024px) {
+    padding-left: 2.5vw;
+  }
+`
+const Article = styled.li`
+  margin-bottom: 5vh;
+  line-height: 5.83333vw;
+  overflow: hidden;
+
+  @media (min-width: 1024px) {
+    text-align: right;
+  }
+`
+const ArticleTitle = styled.h2`
+  font-size: calc(48px + ((2 * (100vw - 720px)) / 304));
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+
+  transition: opacity .1s;
+  transform: translate3d(0,200%,0);
+  transition-delay: 1s;
+  transition: transform 1s cubic-bezier(.19,1,.22,1),opacity .3s cubic-bezier(.47,0,.745,.715);
+
+  .visible & {
+    transform: translate3d(0,0,0);
+  }
+`
+const ArticleAuthor = styled.p`
+  font-size: calc(14px + ((2 * (100vw - 720px)) / 304));
+  font-style: italic;
+
+
+  @media (min-width: 1024px) {
+    font-size: calc(12px + ((20 * (100vw - 1200px)) / 416));
+  }
+`
+
 
 class BlogIndex extends React.Component {
+  componentDidMount() {
+    setTimeout(() => {
+      document.body.classList.add('visible');
+    },0);
+  }
+  componentWillUnmount() {
+    document.body.classList.remove('visible');
+  }
+
+
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
+    const social = data.site.siteMetadata.social
     const posts = data.allMarkdownRemark.edges
+
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="Todas las reseñas" />
-        {/* <Bio /> */}
-        <IndexLayout>
-          <Logo />
-          <ArticleList>
-            {posts.map(({ node }) => {
-              const title = node.frontmatter.title || node.fields.slug
-              return (
-                <ArticleWrapper key={node.fields.slug}>
-                  <header>
-                    <HeaderTitle>
-                      <ImageWrapper>
-                        {!!node.frontmatter.cover ?
-                          <Image
-                            fixed={node.frontmatter.cover.childImageSharp.sizes}
-                            style={{
-                              width: '100%',
-                              height: '100%',
-                            }}
-                          /> : null}
-                      </ImageWrapper>
-                      <Link to={node.fields.slug}>
-                        {title}
-                      </Link>
-                    </HeaderTitle>
-                  </header>
-                  {/* <small>{node.frontmatter.date}</small> */}
-                  {/* <section>
-                    <p
-                      dangerouslySetInnerHTML={{
-                        __html: node.frontmatter.description || node.excerpt,
-                      }}
-                    />
-                  </section> */}
-                </ArticleWrapper>
-              )
-            })}
-          </ArticleList>
-        </IndexLayout>
+        <Logo />
+        <HomeLayout>
+          <Intro>
+            <IntroSmall>Bienvenidos a Enjorecerse.</IntroSmall>
+            <IntroSmall>
+              Soy Laura y me encanta leer y escribir. Puedes seguirme en
+              {` `}
+              <a href={`https://instagram.com/${social.instagram}`}>
+                Instagram
+              </a>
+              {` `}
+              y
+              {` `}
+              <a href={`https://goodreads.com/${social.goodreads}`}>
+                Goodreads
+              </a>
+              {`.`}
+            </IntroSmall>
+          </Intro>
+          <IndexLayout>
+            <ul>
+              {posts.map(({ node }) => {
+                const title = node.frontmatter.title || node.fields.slug
+                const author = node.frontmatter.author || node.fields.slug
+                return (
+                  <Article key={node.fields.slug}>
+                    <ArticleTitle>
+                      <Link to={node.fields.slug}>{title}</Link>
+                    </ArticleTitle>
+                    {/* <ArticleAuthor>
+                      {author}
+                    </ArticleAuthor> */}
+                  </Article>
+                )
+              })}
+            </ul>
+          </IndexLayout>
+        </HomeLayout>
       </Layout>
     )
   }
@@ -116,6 +147,10 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        social {
+          instagram,
+          goodreads
+        }
       }
     }
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
@@ -126,17 +161,9 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
             title
             description
-            cover {
-              publicURL
-              childImageSharp {
-                sizes(maxWidth: 1000) {
-                  ...GatsbyImageSharpSizes
-                }
-              }
-            }
+            author
           }
         }
       }

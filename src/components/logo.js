@@ -3,15 +3,18 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 
 const SvgWrapper = styled.svg`
-  margin-bottom: 5vh;
   border-radius: 50px;
+  position: fixed;
+  z-index: 9999;
+  top: 3vh;
+  left: 3vh;
 `
 
 class Logo extends React.Component {
   render() {
     return (
       <Link to={`/`}>
-        <SvgWrapper width="50" height="50" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+        <SvgWrapper width="40" height="40" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <filter id="displacementFilter">
               <feTurbulence numOctaves="22" type="turbulence" baseFrequency="0.6" result="turbulence"/> */}

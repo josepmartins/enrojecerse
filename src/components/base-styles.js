@@ -5,21 +5,7 @@ import LibreBaskervilleItalicWoff from '../fonts/libre-baskerville-italic.woff'
 import LibreBaskervilleItalicWoff2 from '../fonts/libre-baskerville-italic.woff2'
 
 const BaseStyles = createGlobalStyle`
-  @font-face {
-    font-family: 'Libre Baskerville';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Libre Baskerville'), local('LibreBaskerville-Regular'),
-        url('${LibreBaskervilleRegularWoff2}') format('woff2'), url('${LibreBaskervilleRegularWoff}') format('woff');
-  }
-
-  @font-face {
-    font-family: 'Libre Baskerville';
-    font-style: italic;
-    font-weight: 400;
-    src: local('Libre Baskerville Italic'), local('LibreBaskerville-Italic'),
-        url('${LibreBaskervilleItalicWoff2}') format('woff2'), url('${LibreBaskervilleItalicWoff}') format('woff');
-  }
+@import url("https://use.typekit.net/omy3tgb.css");
 
   html {
     font-size: 100%;
@@ -27,11 +13,13 @@ const BaseStyles = createGlobalStyle`
   }
 
   body {
-    font-family: 'Libre Baskerville', serif;
+
+    font-family: baskerville-display-pt, serif;
     font-weight: 400;
+    font-style: normal;
     margin: 0;
     padding: 0;
-    color: rgba(0, 0, 0, 0.84);
+    color: #2A2A2A;
     background-color: #FFFEFC;
 
     -webkit-font-smoothing: antialiased;
@@ -66,8 +54,15 @@ const BaseStyles = createGlobalStyle`
     margin: 0;
   }
 
+  ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
   a{
-    color: #222;
+    color: #2A2A2A;
+    text-decoration: none;
   }
 `
 

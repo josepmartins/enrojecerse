@@ -48,19 +48,9 @@ class Layout extends React.Component {
     }
     return (
       <div
-        style={{
-          marginLeft: `auto`,
-          marginRight: `auto`
-        }}
       >
         <BaseStyles />
-        {/* <header>{header}</header> */}
         <main>{children}</main>
-        <footer style={{display: `none`}}>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
       </div>
     )
   }

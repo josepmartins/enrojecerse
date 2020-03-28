@@ -5,7 +5,6 @@ author: "Jesmyn Ward"
 cover: './la-cancion-de-los-vivos-y-los-muertos.jpg'
 ---
 
-“ 
 – ¿Como te llamas, chaval?
 
 – Richard. Pero todo el mundo me llama Richie para abreviar. Y para hacer la broma.
