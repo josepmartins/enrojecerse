@@ -30,13 +30,6 @@ const LogoWrapper = styled.div`
 
   * + * { margin-left: 8px; }
 `
-const DateWrapper = styled.div`
-  font-size: 12px;
-  font-family: minion-pro, serif;
-  font-weight: 400;
-  font-style: normal;
-`
-
 const ContactWrapper = styled.div`
   display: flex;
   font-size: 12px;

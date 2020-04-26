@@ -24,7 +24,6 @@ class BlogIndex extends React.Component {
 
     return (
       <Layout>
-
         <SEO title="Todas las reseñas" />
         <ArticleList>
           {posts.map(({ node }, index) => {

@@ -31,7 +31,7 @@ const HeaderContent = styled.div`
   margin-bottom: 5vh;
 
   @media (min-width: 1024px) {
-    height: 40vh;
+    min-height: 40vh;
     margin-bottom: 0;
   }
 `
