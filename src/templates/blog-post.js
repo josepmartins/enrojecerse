@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby"
 import Image from "gatsby-image"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
-import TextWrapper  from "../components/text-wrapper"
+import TextHero  from "../components/text-hero"
 import styled from "styled-components"
 
 const Wrapper = styled.div`
@@ -78,8 +78,8 @@ class BlogPostTemplate extends React.Component {
           description={post.frontmatter.description || post.excerpt}
         />
         <HeaderContent>
-          <TextWrapper index={0}>{post.frontmatter.title.toUpperCase()}</TextWrapper>
-          <TextWrapper index={1}>{post.frontmatter.author.toUpperCase()}</TextWrapper>
+          <TextHero index={0}>{post.frontmatter.title.toUpperCase()}</TextHero>
+          <TextHero index={1}>{post.frontmatter.author.toUpperCase()}</TextHero>
         </HeaderContent>
         <Wrapper>
 
@@ -100,14 +100,14 @@ class BlogPostTemplate extends React.Component {
             <nav>
               <i>Te puede interesar</i>
               {previous && (
-                <TextWrapper>
+                <TextHero>
                   <Link to={previous.fields.slug} rel="prev">{previous.frontmatter.title.toUpperCase()} </Link>
-                </TextWrapper>
+                </TextHero>
               )}
               {next && (
-                <TextWrapper>
+                <TextHero>
                   <Link to={next.fields.slug} rel="next">{next.frontmatter.title.toUpperCase()}</Link>
-                </TextWrapper>
+                </TextHero>
               )}
             </nav>
           </Content>

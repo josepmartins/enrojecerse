@@ -2,7 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import TextWrapper from "../components/text-wrapper"
+import TextHero from "../components/text-hero"
 import styled from "styled-components"
 
 const ArticleList = styled.ul`
@@ -31,9 +31,9 @@ class BlogIndex extends React.Component {
             const title = node.frontmatter.title || node.fields.slug
             return (
               <li key={node.fields.slug}>
-                <TextWrapper index={index}>
+                <TextHero index={index}>
                   <Link to={node.fields.slug}>{title.toUpperCase()}</Link>
-                </TextWrapper>
+                </TextHero>
               </li>
             )
           })}

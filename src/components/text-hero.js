@@ -11,7 +11,7 @@ const fadeUp = keyframes`
     transform: translate3d(0,0,0);
   }
 `
-const TextFitWrapper = styled.h2`
+const TextHeroWrapper = styled.h2`
   white-space: nowrap;
   width: 100%;
   line-height: 0.85;
@@ -28,15 +28,15 @@ const TextFitWrapper = styled.h2`
   }
 `
 
-function TextFit(props) {
+function TextHero(props) {
   return (
-    <TextFitWrapper index={props.index} style={{fontFamily: 'GT Super'}}>
+    <TextHeroWrapper index={props.index} style={{fontFamily: 'GT Super'}}>
       <Textfit mode="single" max={500}>
         {props.children}
       </Textfit>
-    </TextFitWrapper>
+    </TextHeroWrapper>
 
   )
 }
 
-export default TextFit
+export default TextHero
