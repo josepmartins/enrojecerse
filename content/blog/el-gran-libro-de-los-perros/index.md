@@ -1,7 +1,7 @@
 ---
 title: El gran libro de los perros
 date: "2015-05-28T22:40:32.169Z"
-author: "Editado por Jorge de Cascante e ilustrador por Alexander Reverdin"
+author: "Jorge de Cascante"
 description: This is a custom description for SEO and Open Graph purposes, rather than the default generated excerpt. Simply add a description field to the frontmatter.
 cover: './cover3.jpg'
 ---

@@ -1,90 +1,66 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import Logo from "../components/logo"
-import SEO from "../components/seo"
 import Image from "gatsby-image"
+import SEO from "../components/seo"
+import Layout from "../components/layout"
+import TextWrapper  from "../components/text-wrapper"
 import styled from "styled-components"
 
-const Date = styled.small`
-  position: fixed;
-  top: 3vh;
-  right: 3vh;
-  z-index: 999;
+const Wrapper = styled.div`
+  @media (min-width: 1024px) {
+    display: flex;
+  }
 `
-const Header = styled.header`
-  padding-bottom: 10vh;
+const Header = styled.div`
+  flex: 1;
+  min-width: 50%;
 `
 const Content = styled.div`
-  width: 90vw;
-  max-width: 50rem;
-  margin: 0 auto;
-  padding-bottom: 20vh;
+  flex: 1;
+  min-width: 50%;
+  margin-bottom: 50vh;
 
   @media (min-width: 1024px) {
-    width: 50vw;
+    margin-top: 16vh;
+    padding: 5vh 0;
+    padding-left: 32px;
   }
 `
 const HeaderContent = styled.div`
-  text-align: center;
-  padding-top: 15vh;
+  margin-top: 12vh;
+  margin-bottom: 5vh;
 
   @media (min-width: 1024px) {
-    position: sticky;
-    top: 0;
-  }
-`
-const HeaderTitle = styled.div`
-  font-size: calc(48px + ((2 * (100vw - 720px)) / 304));
-  line-height: 1;
-  text-transform: uppercase;
-  letter-spacing: -2px;
-  margin: 0 auto;
-  width: 80vw;
-
-  @media (min-width: 1024px) {
-    font-size: calc(88px + ((30 * (100vw - 1200px)) / 416));
-    width: 80vw;
-  }
-`
-const HeaderSubTitle = styled.div`
-  font-size: calc(14px + ((2 * (100vw - 720px)) / 304));
-  font-style: italic;
-  margin: 0 auto;
-  width: 80vw;
-
-  @media (min-width: 1024px) {
-    width: 50vw;
-    font-size: calc(12px + ((30 * (100vw - 1200px)) / 416));
+    height: 40vh;
+    margin-bottom: 0;
   }
 `
 const HeaderImage = styled.div`
-  width: 80vw;
-  height: 50vh;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 0;
-  margin-top: 5vh;
+  height: 66vh;
 
   @media (min-width: 1024px) {
-    height: 80vh;
-    width: 50vw;
-    position: relative;
-    z-index: -1;
-    margin-bottom: 30vh;
+    height: 100vh;
+    position: sticky;
+    padding: 5vh 0;
+    top: 0;
   }
 `
 const Section = styled.section`
+  text-align: justify;
+  margin-bottom: 50vh;
+
+  p:first-child {
+    text-indent: 0;
+  }
+
   p {
-    font-size: calc(20px + ((1 * (100vw - 720px)) / 304));
-    margin-bottom: 3vh;
+    font-size: calc(24px + ((1 * (100vw - 720px)) / 304));
     line-height: 145%;
+    text-indent: 2em;
 
     @media (min-width: 1024px) {
       font-size: calc(20px + ((8 * (100vw - 1024px)) / 416));
-      margin-bottom: 5vh;
+      line-height: 120%;
     }
   }
 `
@@ -96,61 +72,47 @@ class BlogPostTemplate extends React.Component {
     const { previous, next } = this.props.pageContext
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Layout location={this.props.location} title={siteTitle} date={post.frontmatter.date}>
         <SEO
           title={post.frontmatter.image}
           description={post.frontmatter.description || post.excerpt}
         />
-        <Logo />
-        <Date>{post.frontmatter.date}</Date>
-        <Header>
-          <HeaderContent>
-            <HeaderTitle> {post.frontmatter.title}</HeaderTitle>
-            <HeaderSubTitle>{post.frontmatter.author}</HeaderSubTitle>
-          </HeaderContent>
-          <HeaderImage>
-            {!!post.frontmatter.cover ?
-              <Image
-                fixed={post.frontmatter.cover.childImageSharp.sizes}
-                style={{
-                  width: '100%',
-                  height: '100%',
-                }}
-              /> : null}
-          </HeaderImage>
-        </Header>
+        <HeaderContent>
+          <TextWrapper index={0}>{post.frontmatter.title.toUpperCase()}</TextWrapper>
+          <TextWrapper index={1}>{post.frontmatter.author.toUpperCase()}</TextWrapper>
+        </HeaderContent>
+        <Wrapper>
 
+          <Header>
+            <HeaderImage>
+              {!!post.frontmatter.cover ?
+                <Image
+                  fixed={post.frontmatter.cover.childImageSharp.sizes}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                  }}
+                /> : null}
+            </HeaderImage>
+          </Header>
+          <Content>
+            <Section dangerouslySetInnerHTML={{ __html: post.html }} />
+            <nav>
+              <i>Te puede interesar</i>
+              {previous && (
+                <TextWrapper>
+                  <Link to={previous.fields.slug} rel="prev">{previous.frontmatter.title.toUpperCase()} </Link>
+                </TextWrapper>
+              )}
+              {next && (
+                <TextWrapper>
+                  <Link to={next.fields.slug} rel="next">{next.frontmatter.title.toUpperCase()}</Link>
+                </TextWrapper>
+              )}
+            </nav>
+          </Content>
 
-        <Content>
-          <Section dangerouslySetInnerHTML={{ __html: post.html }} />
-          <Bio />
-          <nav>
-            <ul
-              style={{
-                display: `flex`,
-                flexWrap: `wrap`,
-                justifyContent: `space-between`,
-                listStyle: `none`,
-                padding: 0,
-              }}
-            >
-              <li>
-                {previous && (
-                  <Link to={previous.fields.slug} rel="prev">
-                    ← {previous.frontmatter.title}
-                  </Link>
-                )}
-              </li>
-              <li>
-                {next && (
-                  <Link to={next.fields.slug} rel="next">
-                    {next.frontmatter.title} →
-                  </Link>
-                )}
-              </li>
-            </ul>
-          </nav>
-        </Content>
+        </Wrapper>
 
       </Layout>
     )
