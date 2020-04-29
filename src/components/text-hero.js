@@ -1,6 +1,9 @@
 import React from 'react';
-import styled, { keyframes } from "styled-components"
+import Observer from 'fontfaceobserver'
 import { Textfit } from 'react-textfit';
+import styled, { keyframes } from "styled-components"
+
+const bodyFont = new Observer('GT Super');
 
 const fadeUp = keyframes`
   from {
@@ -21,22 +24,37 @@ const TextHeroWrapper = styled.h2`
     animation: ${fadeUp} 750ms cubic-bezier(0.46, 0.99, 0.73, 0.99);
     display: block;
     animation-fill-mode: backwards;
-    animation-delay: ${p => p.index * 75}ms;
+    animation-delay: ${p => ( p.index + 1 ) * 75}ms;
   }
   & a {
     display: block;
   }
 `
 
-function TextHero(props) {
-  return (
-    <TextHeroWrapper index={props.index} style={{fontFamily: 'GT Super'}}>
-      <Textfit mode="single" max={500}>
-        {props.children}
-      </Textfit>
-    </TextHeroWrapper>
+class TextHero extends React.Component {
+  state = { isLoaded: false };
 
-  )
+  componentDidMount() {
+    bodyFont.load().then(() =>
+      setTimeout(() => {
+          this.setState(() => {
+            return { isLoaded: true };
+          })
+        }, 200)
+    )
+  }
+
+  render() {
+    return (
+      this.state.isLoaded && (
+        <TextHeroWrapper index={this.props.index} style={{fontFamily: 'GT Super'}}>
+          <Textfit mode="single" max={500}>
+            {this.props.children}
+          </Textfit>
+        </TextHeroWrapper>
+      )
+    )
+  }
 }
 
 export default TextHero
