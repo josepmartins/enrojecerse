@@ -11,33 +11,29 @@ const Wrapper = styled.div`
     display: flex;
   }
 `
+const Hint = styled.i`
+  display: block;
+  margin-bottom: 1vh;
+`
 const Header = styled.div`
   flex: 1;
   min-width: 50%;
 `
 const Content = styled.div`
   flex: 1;
-  min-width: 50%;
-  margin-bottom: 50vh;
-
+  padding-top: 5vh;
+  padding-bottom: 5vh;
   @media (min-width: 1024px) {
-    margin-top: 16vh;
-    padding: 5vh 0;
     padding-left: 32px;
+    min-width: 50%;
   }
 `
 const HeaderContent = styled.div`
   margin-top: 12vh;
-  margin-bottom: 5vh;
-
-  @media (min-width: 1024px) {
-    min-height: 40vh;
-    margin-bottom: 0;
-  }
+  margin-bottom: 2vh;
 `
 const HeaderImage = styled.div`
   height: 66vh;
-
   @media (min-width: 1024px) {
     height: 100vh;
     position: sticky;
@@ -46,18 +42,13 @@ const HeaderImage = styled.div`
   }
 `
 const Section = styled.section`
-  text-align: justify;
-  margin-bottom: 50vh;
-
   p:first-child {
     text-indent: 0;
   }
-
   p {
     font-size: calc(24px + ((1 * (100vw - 720px)) / 304));
     line-height: 145%;
     text-indent: 2em;
-
     @media (min-width: 1024px) {
       font-size: calc(20px + ((8 * (100vw - 1024px)) / 416));
       line-height: 120%;
@@ -82,7 +73,6 @@ class BlogPostTemplate extends React.Component {
           <TextHero index={1}>{post.frontmatter.author.toUpperCase()}</TextHero>
         </HeaderContent>
         <Wrapper>
-
           <Header>
             <HeaderImage>
               {!!post.frontmatter.cover ?
@@ -97,23 +87,21 @@ class BlogPostTemplate extends React.Component {
           </Header>
           <Content>
             <Section dangerouslySetInnerHTML={{ __html: post.html }} />
-            <nav>
-              <i>Te puede interesar</i>
-              {previous && (
-                <TextHero>
-                  <Link to={previous.fields.slug} rel="prev">{previous.frontmatter.title.toUpperCase()} </Link>
-                </TextHero>
-              )}
-              {next && (
-                <TextHero>
-                  <Link to={next.fields.slug} rel="next">{next.frontmatter.title.toUpperCase()}</Link>
-                </TextHero>
-              )}
-            </nav>
           </Content>
-
         </Wrapper>
-
+        <nav>
+          <Hint>Otras reseñas que te pueden interesar</Hint>
+          {previous && (
+            <TextHero>
+              <Link to={previous.fields.slug} rel="prev">{previous.frontmatter.title.toUpperCase()} </Link>
+            </TextHero>
+          )}
+          {next && (
+            <TextHero>
+              <Link to={next.fields.slug} rel="next">{next.frontmatter.title.toUpperCase()}</Link>
+            </TextHero>
+          )}
+        </nav>
       </Layout>
     )
   }
