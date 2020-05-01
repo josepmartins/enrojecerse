@@ -16,7 +16,7 @@ const TextHeroWrapper = styled.h2`
 function TextHero(props) {
   return (
     <TextHeroWrapper style={{fontFamily: 'GT Super'}}>
-      <Textfit mode="single" min={30} max={500}>
+      <Textfit mode="single" min={10} max={500}>
         {props.children}
       </Textfit>
     </TextHeroWrapper>
