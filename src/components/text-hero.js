@@ -1,25 +1,28 @@
 import React from 'react';
-import { Textfit } from 'react-textfit';
 import styled from "styled-components"
+import useFitText from '../utils/use-text-fit'
 
-const TextHeroWrapper = styled.h2`
-  white-space: nowrap;
+const TextWrapper = styled.div`
   width: 100%;
-  line-height: 0.85;
+  line-height: 0.95;
+  font-family: 'GT Super';
+  white-space: nowrap;
   overflow: hidden;
 
   & a {
     display: block;
+    width: 100%;
   }
 `
 
 function TextHero(props) {
+  const { fontSize, ref } = useFitText();
   return (
-    <TextHeroWrapper style={{fontFamily: 'GT Super'}}>
-      <Textfit mode="single" min={10} max={500}>
+    <TextWrapper>
+      <div ref={ref} style={{ fontSize, width: '100%' }}>
         {props.children}
-      </Textfit>
-    </TextHeroWrapper>
+      </div>
+    </TextWrapper>
   )
 }
 

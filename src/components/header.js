@@ -18,7 +18,6 @@ const HeaderWrapper = styled.header`
   @media (min-width: 1024px) {
     padding: 3vh 50px 0;
   }
-
 `
 const LogoWrapper = styled.div`
   display: flex;

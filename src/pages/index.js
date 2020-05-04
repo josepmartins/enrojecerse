@@ -7,14 +7,6 @@ import styled from "styled-components"
 
 const ArticleList = styled.ul`
   margin: 12vh 0 20vh;
-
-  &:hover a{
-    opacity: 0.2;
-    transition: 0.2s;
-  }
-  &:hover a:hover {
-    opacity: 1;
-  }
 `
 
 class BlogIndex extends React.Component {
