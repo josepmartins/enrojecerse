@@ -1,5 +1,4 @@
 import React from "react"
-import Helmet from "react-helmet"
 import BaseStyles from "../components/base-styles"
 import Header from "../components/header"
 import styled from "styled-components"

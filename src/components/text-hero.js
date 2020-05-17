@@ -50,7 +50,7 @@ function TextHero(props) {
   const { fontSize, ref } = useFitText();
   return (
     <TextWrapper isAnimated={props.isAnimated} index={props.index}>
-          <Transition appear={true} in={true}>
+          <Transition timeout={0} appear={true} in={true}>
               {state => (
                 <AnimateWrapper state={state}>
                   <div ref={ref} style={{ fontSize, width: '100%' }}>

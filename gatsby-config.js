@@ -3,7 +3,7 @@ module.exports = {
     title: `Enrojecerse | blog de reseñas literarias`,
     author: `Enrojecerse`,
     description: `¿Te gustan los libros? Enrojecerse es mi blog literario con reseñas, libros y novedades literarias.`,
-    siteUrl: `https://enrojecerse.com/`,
+    siteUrl: `https://www.enrojecerse.com/`,
     social: {
       instagram: `enrojecerse`,
       goodreads: `enrojecerse`
