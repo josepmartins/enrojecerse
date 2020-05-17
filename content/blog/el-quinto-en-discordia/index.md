@@ -1,5 +1,5 @@
 ---
-title: El quinto en discorida
+title: El quinto en discordia
 date: "2020-04-13"
 author: "Robertson Davies"
 description: Maldito el momento en el que me hice con El quinto en discordia sin saber que me iban a confinar y que iba a estar semanas y semanas esperando su continuación
