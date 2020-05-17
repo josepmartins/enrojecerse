@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Enrojecerse | blog de reseñas literarias`,
+    title: `Enrojecerse | Blog de reseñas literarias`,
     author: `Enrojecerse`,
     description: `¿Te gustan los libros? Enrojecerse es mi blog literario con reseñas, libros y novedades literarias.`,
     siteUrl: `https://www.enrojecerse.com/`,
@@ -52,7 +52,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
+        trackingId: `UA-166901942-1`,
       },
     },
     `gatsby-plugin-feed`,
@@ -62,8 +62,8 @@ module.exports = {
         name: `Gatsby Starter Blog`,
         short_name: `GatsbyJS`,
         start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#663399`,
+        background_color: `#fdfdfd`,
+        theme_color: `#ff6347`,
         display: `minimal-ui`,
         icon: `content/assets/gatsby-icon.png`,
       },
