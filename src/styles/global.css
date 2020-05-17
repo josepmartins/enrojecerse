@@ -1,11 +1,24 @@
 @import url("https://use.typekit.net/omy3tgb.css");
 
 @font-face {
-  font-family: 'GT Super';
+  font-family: 'Bon Vivant';
+  font-weight: normal;
   font-style: normal;
-  font-weight: 400;
-  src: local('GT Super'), local('GT-Super'),
-      url('../fonts/gtsuperdisplay-light-webfont.woff') format('woff');
+  src: local('Bon Vivant'), local('Bon Vivant'),
+      url('../fonts/bon_vivant.woff') format('woff');
+}
+
+:root{
+  --body-color: #1f1f1f;
+  --background-color: #f7f7f5;
+  --primary-color: tomato;
+  --layout-side-margins: 16px;
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --layout-side-margins: 32px;
+  }
 }
 
 html {
@@ -13,19 +26,19 @@ html {
 }
 
 body {
-  font-family: minion-pro, serif;
-  font-weight: 300;
+  font-family: freight-text-pro, serif;
+  font-weight: 400;
   font-style: normal;
   margin: 0;
   padding: 0;
-  color: #1f1f1f;
-  background-color: #f7f7f5;
+  color: var(--body-color);
+  background-color: var(--background-color);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3 {
-  font-family: 'GT Super', serif;
+  font-family: 'Bon Vivant', serif;
   margin: 0;
   font-style: normal;
   font-weight: 400;

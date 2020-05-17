@@ -6,9 +6,8 @@ import TextHero from "../components/text-hero"
 import styled from "styled-components"
 
 const ArticleList = styled.ul`
-  margin: 12vh 0 20vh;
+  margin: 10vh 0 20vh;
 `
-
 class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
@@ -22,7 +21,7 @@ class BlogIndex extends React.Component {
             const title = node.frontmatter.title || node.fields.slug
             return (
               <li key={node.fields.slug}>
-                <TextHero index={index}>
+                <TextHero isAnimated={true} index={index}>
                   <Link to={node.fields.slug}>{title.toUpperCase()}</Link>
                 </TextHero>
               </li>

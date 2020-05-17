@@ -8,16 +8,12 @@ const HeaderWrapper = styled.header`
   top: 0;
   left: 0;
   right: 0;
-  padding: 3vh 16px 0;
+  padding: 3vh var(--layout-side-margins) 0;
   width: 100vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap:wrap;
-
-  @media (min-width: 1024px) {
-    padding: 3vh 50px 0;
-  }
 `
 const LogoWrapper = styled.div`
   display: flex;
@@ -67,16 +63,16 @@ const Header = (props) => {
     <HeaderWrapper>
       <LogoWrapper>
         <Link to={`/`}>
-          <SvgWrapper width="40" height="40" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+          <SvgWrapper width="32" height="32" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <filter id="displacementFilter">
-                <feTurbulence numOctaves="22" type="turbulence" baseFrequency="0.6" result="turbulence"/> */}
+                <feTurbulence numOctaves="20" type="turbulence" baseFrequency="10" result="turbulence"/> */}
                 <feDisplacementMap in2="turbulence" in="SourceGraphic"
                     scale="280" xChannelSelector="R" yChannelSelector="G"/>
               </filter>
             </defs>
             <g filter= "url(#displacementFilter)">
-              <circle cx="100" cy="100" r="100" fill="pink"/>
+              <circle cx="100" cy="100" r="100" fill="tomato"/>
             </g>
           </SvgWrapper>
         </Link>
