@@ -53,9 +53,9 @@ function TextHero(props) {
           <Transition timeout={0} appear={true} in={true}>
               {state => (
                 <AnimateWrapper state={state}>
-                  <div ref={ref} style={{ fontSize, width: '100%' }}>
+                  <h2 ref={ref} style={{ fontSize, width: '100%' }}>
                     {props.children}
-                  </div>
+                  </h2>
                 </AnimateWrapper>
               )}
           </Transition>

@@ -6,7 +6,7 @@ import TextHero from "../components/text-hero"
 import styled from "styled-components"
 
 const ArticleList = styled.ul`
-  margin: 10vh 0 20vh;
+  margin: 10vh 0 5vh;
 `
 class BlogIndex extends React.Component {
   render() {
