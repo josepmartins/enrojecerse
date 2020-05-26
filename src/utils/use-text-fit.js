@@ -18,7 +18,7 @@ const useIsoLayoutEffect =
     : useEffect;
 
 const useFitText = () => {
-  const maxFontSize = 300;
+  const maxFontSize = 500;
   const minFontSize = 10;
   const resolution = 1;
 
