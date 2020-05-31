@@ -42,18 +42,25 @@ const HeaderImage = styled.div`
   }
 `
 const Section = styled.section`
+
   p:first-child {
     text-indent: 0;
   }
+
   p {
     font-size: calc(24px + ((1 * (100vw - 720px)) / 304));
     line-height: 145%;
     text-indent: 2em;
     margin-bottom: 2vh;
+
     @media (min-width: 1024px) {
       font-size: calc(20px + ((8 * (100vw - 1024px)) / 416));
       line-height: 120%;
     }
+  }
+
+  a {
+    color: var(--primary-color);
   }
 `
 

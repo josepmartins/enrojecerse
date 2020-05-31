@@ -47,6 +47,7 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-catch-links`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-styled-components`,
     {
