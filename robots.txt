@@ -1,2 +1,3 @@
+Sitemap: https://www.enrojecerse.com/sitemap.xml
 User-agent: *
 Disallow:
