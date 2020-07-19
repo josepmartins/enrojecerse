@@ -60,7 +60,32 @@ const Section = styled.section`
   }
 
   a {
-    color: var(--primary-color);
+    font-weight: 300;
+    position relative;
+    font-style: italic;
+
+    &:after{
+      content: "";
+      position: absolute;
+      z-index: 0;
+      right: 0;
+      width: 0;
+      bottom: 37.5%;
+      height: 2px;
+      transition-property: width;
+      transition-duration: .35s;
+      transition-timing-function: cubic-bezier(.36,.01,.44,.8);
+      background-color: var(--primary-color);
+    }
+
+    &:hover{
+      &:after{
+        left: 0;
+        right: auto;
+        width: 100%;
+      }
+    }
+
   }
 `
 

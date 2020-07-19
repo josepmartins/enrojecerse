@@ -27,7 +27,7 @@ html {
 
 body {
   font-family: freight-text-pro, serif;
-  font-weight: 400;
+  font-weight: 300;
   font-style: normal;
   margin: 0;
   padding: 0;
@@ -44,7 +44,21 @@ h1, h2, h3 {
   font-weight: 400;
 }
 
-p{
-  font-weight: 400;
+p {
+  font-weight: 300;
   font-style: normal;
+}
+
+a {
+  color: var(--body-color);
+  text-decoration: none;
+}
+
+::-moz-selection {
+  color: var(--background-color);
+  background-color: var(--primary-color);
+}
+::selection {
+  color: var(--background-color);
+  background-color: var(--primary-color);
 }

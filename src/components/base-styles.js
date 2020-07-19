@@ -1,15 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
 const BaseStyles = createGlobalStyle`
-  ::-moz-selection {
-  	color: black;
-  	background-color: pink;
-  }
-	::selection {
-		color: black;
-		background-color: pink;
-	}
-
 	*,
 	*:before,
 	*:after {
@@ -24,16 +15,10 @@ const BaseStyles = createGlobalStyle`
     margin: 0;
   }
 
-  ul{
+  ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
   }
-
-  a{
-    color: #2A2A2A;
-    text-decoration: none;
-  }
 `
-
 export default BaseStyles
