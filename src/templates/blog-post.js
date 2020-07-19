@@ -28,6 +28,10 @@ const Content = styled.div`
     min-width: 50%;
   }
 `
+const Footer = styled.footer`
+  margin-bottom: 5vh;
+`
+
 const HeaderContent = styled.div`
   margin-top: 12vh;
   margin-bottom: 2vh;
@@ -123,7 +127,7 @@ class BlogPostTemplate extends React.Component {
             <Section dangerouslySetInnerHTML={{ __html: post.html }} />
           </Content>
         </Wrapper>
-        <nav>
+        <Footer>
           <Hint>Otras reseñas que te pueden interesar</Hint>
           {previous && (
             <TextHero>
@@ -135,7 +139,7 @@ class BlogPostTemplate extends React.Component {
               <Link to={next.fields.slug} rel="next">{next.frontmatter.title.toUpperCase()}</Link>
             </TextHero>
           )}
-        </nav>
+        </Footer>
       </Layout>
     )
   }
