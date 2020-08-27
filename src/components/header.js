@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { Link } from "gatsby"
 import styled from "styled-components"
 
 const HeaderWrapper = styled.header`
@@ -18,26 +18,44 @@ const HeaderWrapper = styled.header`
 const LogoWrapper = styled.div`
   display: flex;
   align-items: center;
-  content:'';
-  display:inline-block;
   flex: 2;
   flex-wrap:wrap;
 
-  * + * { margin-left: 8px; }
+  & a { display: flex; }
 `
 const ContactWrapper = styled.div`
   display: flex;
-  font-size: 12px;
-  text-transform: uppercase;
-  content:'';
   flex: 2;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
   justify-content: flex-end;
+  position: relative;
 
-  * + * { margin-left: 12px; }
+  a {
+    font-size: 12px;
+    text-transform: uppercase;
+    position relative;
 
-  & a:hover {
-    text-decoration: underline;
+    &:after{
+      content: "";
+      position: absolute;
+      z-index: 0;
+      right: 0;
+      width: 0;
+      bottom: 40%;
+      height: 1px;
+      transition-property: width;
+      transition-duration: .25s;
+      transition-timing-function: cubic-bezier(.36,.01,.44,.8);
+      background-color: var(--primary-color);
+    }
+
+    &:hover{
+      &:after{
+        left: 0;
+        right: auto;
+        width: 100%;
+      }
+    }
   }
 `
 const SvgWrapper = styled.svg`
@@ -45,20 +63,6 @@ const SvgWrapper = styled.svg`
 `
 
 const Header = (props) => {
-  const data = useStaticQuery(graphql`
-    query SocialQuery {
-      site {
-        siteMetadata {
-          social {
-            instagram,
-            goodreads
-          }
-        }
-      }
-    }
-  `)
-  const social = data.site.siteMetadata.social
-
   return (
     <HeaderWrapper>
       <LogoWrapper>
@@ -79,12 +83,7 @@ const Header = (props) => {
       </LogoWrapper>
       <small><i>{props.date}</i></small>
       <ContactWrapper>
-          <a target="_blank" rel="noopener noreferrer" href={`https://instagram.com/${social.instagram}`}>
-            Instagram
-          </a>
-          <a target="_blank" rel="noopener noreferrer" href={`https://goodreads.com/${social.goodreads}`}>
-            Goodreads
-          </a>
+          <Link to={`/about`}>SOBRE MÍ</Link>
       </ContactWrapper>
     </HeaderWrapper>
   )

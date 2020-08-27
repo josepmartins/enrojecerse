@@ -3,11 +3,7 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import TextHero from "../components/text-hero"
-import styled from "styled-components"
 
-const ArticleList = styled.ul`
-  margin: 10vh 0 5vh;
-`
 class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
@@ -16,7 +12,7 @@ class BlogIndex extends React.Component {
     return (
       <Layout>
         <SEO title="Todas las reseñas" />
-        <ArticleList>
+        <ul>
           {posts.map(({ node }, index) => {
             const title = node.frontmatter.title || node.fields.slug
             return (
@@ -27,7 +23,7 @@ class BlogIndex extends React.Component {
               </li>
             )
           })}
-        </ArticleList>
+        </ul>
       </Layout>
     )
   }

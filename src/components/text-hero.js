@@ -3,6 +3,9 @@ import styled from "styled-components"
 import useFitText from '../utils/use-text-fit'
 import { Transition } from 'react-transition-group'
 
+const Title = styled.h2`
+`
+
 const TextWrapper = styled.div`
   width: 100%;
   line-height: 0.85;
@@ -41,6 +44,7 @@ const TextWrapper = styled.div`
   ${({ isAnimated }) => isAnimated && `
   `}
 `
+
 const AnimateWrapper = styled.div`
   transition: 0.25s ease-in;
   opacity: ${({ state }) => (state === "entered" ? 1 : 0)};
@@ -49,17 +53,16 @@ const AnimateWrapper = styled.div`
 function TextHero(props) {
   const { fontSize, ref } = useFitText();
   return (
-    <TextWrapper isAnimated={props.isAnimated} index={props.index}>
+    <TextWrapper isAnimated={props.isAnimated}>
           <Transition timeout={0} appear={true} in={true}>
               {state => (
                 <AnimateWrapper state={state}>
-                  <h2 ref={ref} style={{ fontSize, width: '100%' }}>
+                  <Title as={props.tag} ref={ref} style={{ fontSize, width: '100%' }}>
                     {props.children}
-                  </h2>
+                  </Title>
                 </AnimateWrapper>
               )}
           </Transition>
-
     </TextWrapper>
   )
 }

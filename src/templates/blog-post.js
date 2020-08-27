@@ -4,6 +4,7 @@ import Image from "gatsby-image"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
 import TextHero  from "../components/text-hero"
+import TextContent  from "../components/text-content"
 import styled from "styled-components"
 
 const Wrapper = styled.div`
@@ -23,73 +24,27 @@ const Content = styled.div`
   flex: 1;
   padding-top: 5vh;
   padding-bottom: 5vh;
+
   @media (min-width: 1024px) {
     padding-left: 32px;
     min-width: 50%;
   }
 `
 const Footer = styled.footer`
-  margin-bottom: 5vh;
 `
 
-const HeaderContent = styled.div`
-  margin-top: 12vh;
-  margin-bottom: 2vh;
+const Hero = styled.div`
+  padding-bottom: 2vh;
 `
+
 const HeaderImage = styled.div`
   height: 66vh;
+
   @media (min-width: 1024px) {
     height: 100vh;
     position: sticky;
     padding: 5vh 0;
     top: 0;
-  }
-`
-const Section = styled.section`
-
-  p:first-child {
-    text-indent: 0;
-  }
-
-  p {
-    font-size: calc(24px + ((1 * (100vw - 720px)) / 304));
-    line-height: 145%;
-    text-indent: 2em;
-    margin-bottom: 2vh;
-
-    @media (min-width: 1024px) {
-      font-size: calc(20px + ((8 * (100vw - 1024px)) / 416));
-      line-height: 120%;
-    }
-  }
-
-  a {
-    font-weight: 300;
-    position relative;
-    font-style: italic;
-
-    &:after{
-      content: "";
-      position: absolute;
-      z-index: 0;
-      right: 0;
-      width: 0;
-      bottom: 37.5%;
-      height: 2px;
-      transition-property: width;
-      transition-duration: .35s;
-      transition-timing-function: cubic-bezier(.36,.01,.44,.8);
-      background-color: var(--primary-color);
-    }
-
-    &:hover{
-      &:after{
-        left: 0;
-        right: auto;
-        width: 100%;
-      }
-    }
-
   }
 `
 
@@ -106,10 +61,10 @@ class BlogPostTemplate extends React.Component {
           description={post.frontmatter.description || post.excerpt}
           image={post.frontmatter.cover.publicURL}
         />
-        <HeaderContent>
-          <TextHero index={0}>{post.frontmatter.title.toUpperCase()}</TextHero>
-          <TextHero index={1}>{post.frontmatter.author.toUpperCase()}</TextHero>
-        </HeaderContent>
+        <Hero>
+          <TextHero tag="h1">{post.frontmatter.title.toUpperCase()}</TextHero>
+          <TextHero>{post.frontmatter.author.toUpperCase()}</TextHero>
+        </Hero>
         <Wrapper>
           <Header>
             <HeaderImage>
@@ -124,7 +79,9 @@ class BlogPostTemplate extends React.Component {
             </HeaderImage>
           </Header>
           <Content>
-            <Section dangerouslySetInnerHTML={{ __html: post.html }} />
+            <TextContent>
+              <section dangerouslySetInnerHTML={{ __html: post.html }} />
+            </TextContent>
           </Content>
         </Wrapper>
         <Footer>
