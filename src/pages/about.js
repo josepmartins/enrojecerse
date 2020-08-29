@@ -9,7 +9,7 @@ import styled from "styled-components"
 
 const ContentWrapper = styled.div`
   padding-top: 2vh;
-  padding-bottom: 5vh;
+  padding-bottom: 15vh;
 
   @media (min-width: 1024px) {
     max-width: calc((100/3) * 2 * 1%);

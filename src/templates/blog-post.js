@@ -35,6 +35,10 @@ const Footer = styled.footer`
 
 const Hero = styled.div`
   padding-bottom: 2vh;
+
+  @media (min-width: 1024px) {
+    padding-bottom: 0;
+  }
 `
 
 const HeaderImage = styled.div`
