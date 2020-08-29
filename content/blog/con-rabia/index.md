@@ -1,6 +1,6 @@
 ---
 title: Con rabia
-date: "2020-08-27"
+date: "2020-07-27"
 author: "Lorenza Mazzetti"
 description: Es un modo de ver el mundo, de comprenderlo y de asimilarlo. Te enfureces y digieres, a partes iguales. Porque sabes que lo que estás leyendo es real. Porque comprendes que Lorenza Mazzetti, antes de ser directora de cine y escritora, fue superviviente del exterminio nazi que todos hoy en día, tristemente, conocemos.
 cover: './con-rabia-lorenza-mazzetti.jpg'
