@@ -4,14 +4,15 @@ import useFitText from '../utils/use-text-fit'
 import { Transition } from 'react-transition-group'
 
 const Title = styled.h2`
+  line-height: 0.85em;
+  text-edge: cap alphabetic;
+  leading-trim: both;
 `
 
 const TextWrapper = styled.div`
   width: 100%;
-  line-height: 0.85;
   font-family: 'Bon Vivant';
   white-space: nowrap;
-  overflow: hidden;
 
   & a {
     display: block;
