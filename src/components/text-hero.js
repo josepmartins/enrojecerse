@@ -4,9 +4,24 @@ import useFitText from '../utils/use-text-fit'
 import { Transition } from 'react-transition-group'
 
 const Title = styled.h2`
-  line-height: 0.85em;
   text-edge: cap alphabetic;
   leading-trim: both;
+  padding: 5px 0;
+  line-height: 0.825em;
+
+  &::before {
+    content: "";
+    margin-top: -0.0044em;
+    display: block;
+    height: 0;
+  }
+
+  &::after {
+    content: "";
+    margin-bottom: -0.0761em;
+    display: block;
+    height: 0;
+  }
 `
 
 const TextWrapper = styled.div`
