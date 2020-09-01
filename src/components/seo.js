@@ -38,8 +38,24 @@ function SEO({ description, lang, meta, title, image }) {
       titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
         {
+          name: `name`,
+          content: title,
+        },
+        {
           name: `description`,
           content: metaDescription,
+        },
+        {
+          name: `image`,
+          content: `${siteUrl}${image}`,
+        },
+        {
+          property: `og:url`,
+          content: `${siteUrl}`,
+        },
+        {
+          property: `og:type`,
+          content: `website`,
         },
         {
           property: `og:title`,
@@ -50,20 +66,20 @@ function SEO({ description, lang, meta, title, image }) {
           content: metaDescription,
         },
         {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          property: `og:image`,
+          property: `og:image:secure_url`,
           content: `${siteUrl}${image}`,
         },
         {
-          name: `twitter:card`,
-          content: `summary`,
+          property: `og:image:width`,
+          content: `300`,
         },
         {
-          name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          property: `og:image:height`,
+          content: `300`,
+        },
+        {
+          name: `twitter:card`,
+          content: `summary_large_image`,
         },
         {
           name: `twitter:title`,
@@ -72,6 +88,14 @@ function SEO({ description, lang, meta, title, image }) {
         {
           name: `twitter:description`,
           content: metaDescription,
+        },
+        {
+          name: `twitter:creator`,
+          content: site.siteMetadata.author,
+        },
+        {
+          name: `twitter:image`,
+          content: `${siteUrl}${image}`,
         },
       ].concat(meta)}
     />

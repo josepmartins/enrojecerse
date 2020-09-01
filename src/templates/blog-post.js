@@ -63,7 +63,7 @@ class BlogPostTemplate extends React.Component {
         <SEO
           title={post.frontmatter.title + ' de ' + post.frontmatter.author}
           description={post.frontmatter.description || post.excerpt}
-          image={post.frontmatter.cover.publicURL}
+          image={post.frontmatter.cover.childImageSharp.resize.src}
         />
         <Hero>
           <TextHero tag="h1">{post.frontmatter.title.toUpperCase()}</TextHero>
@@ -130,6 +130,9 @@ export const pageQuery = graphql`
           childImageSharp {
             sizes(maxWidth: 1000) {
               ...GatsbyImageSharpSizes
+            }
+            resize(width: 900, quality: 90) {
+              src
             }
           }
         }
