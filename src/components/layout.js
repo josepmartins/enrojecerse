@@ -4,7 +4,7 @@ import Header from "../components/header"
 import styled from "styled-components"
 
 const Wrapper = styled.div`
-  margin: 12vh var(--layout-side-margins) 2vh;
+  margin: 64px var(--layout-side-margins) 2vh;
 `
 
 class Layout extends React.Component {

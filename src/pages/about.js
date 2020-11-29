@@ -9,7 +9,7 @@ import styled from "styled-components"
 
 const ContentWrapper = styled.div`
   padding-top: 2vh;
-  padding-bottom: 15vh;
+  padding-bottom: 25vh;
 
   @media (min-width: 1024px) {
     max-width: calc((100/3) * 2 * 1%);
@@ -31,9 +31,10 @@ class About extends React.Component {
         <Image fluid={data.fileName.childImageSharp.fluid} alt="" />
         <ContentWrapper>
           <TextContent>
-            <p>Me llamo Laura. Y aunque nunca me han gustado las descripciones personales, aquí estoy: hecha un ovillo, pasando las páginas de cualquier libro, en el sofá de mi casa. Acompañada de un café caliente. “¿Siempre?”, te preguntarás. “Siempre que leas esto”, te responderé. Aunque, a decir verdad, a veces me levanto y cocino algún dulce. Otras -no tantas otras-, escribo. Y aquí, en esta parte del mundo, es donde encontrarás el resultado de este retórico desorden. Soy libra, así que… bienvenido a mi relatividad.</p>
-            <small>
-              También me podéis encontrar y seguir en
+            <p>Me llamo Laura.</p>
+            <p>Y aunque nunca me han gustado las descripciones personales, aquí estoy: hecha un ovillo, pasando las páginas de cualquier libro, en el sofá de mi casa. Acompañada de un café caliente. “¿Siempre?”, te preguntarás. “Siempre que leas esto”, te responderé. Aunque, a decir verdad, a veces me levanto y cocino algún dulce. Otras -no tantas otras-, escribo. Y aquí, en esta parte del mundo, es donde encontrarás el resultado de este retórico desorden. Soy libra, así que… bienvenido a mi relatividad.</p>
+            <p>
+              Me podéis encontrar en
               {' '}
               <a target="_blank" rel="noopener noreferrer" href={`https://instagram.com/${social.instagram}`}>
                 Instagram
@@ -43,7 +44,7 @@ class About extends React.Component {
                 Goodreads
               </a>
               {'.'}
-            </small>
+            </p>
           </TextContent>
         </ContentWrapper>
       </Layout>
