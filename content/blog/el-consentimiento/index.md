@@ -7,7 +7,6 @@ cover: './el-consentimiento-vanessa-springora.jpg'
 ---
 
 “¿Por qué una adolescente de catorce años no podría amar a un hombre treinta años mayor que ella? Cien veces había dado vueltas mentalmente a esta pregunta. Sin darme cuenta de que estaba mal planteada, desde el principio. Lo que había que cuestionar no era mi atracción, sino la suya.”
--
 
 Consentir involuntariamente. Consentir que te presionen. Consentir que tu corazón sea más fuerte que tu razón. Consentir que te miren, que te digan, que te dejes.
 

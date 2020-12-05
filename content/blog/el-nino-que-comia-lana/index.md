@@ -7,6 +7,7 @@ cover: './el-nino-que-comia-lana-cristina-sanchez-andrade.jpg'
 ---
 
 Tenía muchas ganas de leer una buena recopilación de cuentos y este libro ha cumplido su cometido. Y no solo porque los relatos están llenos de inteligencia y tienen una buena trama; también porque consiguen estremecer y hacerte sentir. Son perturbadores, oscuros, angustiosos e inquietantes. Son breves y punzantes. Bizarros, tal vez.
+
 Además, por si fuera poco, están ambientados en la Galicia rural del siglo XX y, como descendiente de gallegos que soy, pues qué queréis que os diga, me ha hecho mucha ilusión poder recrearlo todo de manera tan cercana.
 
 Hay gente a la que no le ha gustado el libro y opina que Cristina Sánchez-Andrade tiene una voz demasiado juvenil y la tilda incluso de mediocre. Joder… Como profesora de instituto solo os digo que ¡ojalá a mis alumnos les gustara este tipo de libros! Ni en sueños, vamos. En mi opinión, no es para nada vulgar; creo que es muy poética a la hora de escribir, y eso a lo mejor desconcierta. Pero es que precisamente con este libro lo que pretende es desconcertarnos.

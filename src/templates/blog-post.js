@@ -74,6 +74,7 @@ class BlogPostTemplate extends React.Component {
             <HeaderImage>
               {!!post.frontmatter.cover ?
                 <Image
+                  alt={'Cubierta del libro ' + post.frontmatter.title + ' escrito por ' + post.frontmatter.author}
                   fixed={post.frontmatter.cover.childImageSharp.sizes}
                   style={{
                     width: '100%',
