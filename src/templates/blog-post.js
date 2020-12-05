@@ -14,7 +14,7 @@ const Wrapper = styled.div`
 `
 const Hint = styled.i`
   display: block;
-  margin-bottom: 1vh;
+  margin-bottom: 2vh;
 `
 const Header = styled.div`
   flex: 1;
@@ -31,6 +31,8 @@ const Content = styled.div`
   }
 `
 const Footer = styled.footer`
+  margin-bottom: 5vh;
+  margin-top: 2vh;
 `
 
 const Hero = styled.div`
