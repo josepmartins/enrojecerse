@@ -6,7 +6,7 @@ description: Después de la maravillosa publicación de El gran libro de los per
 cover: './el-gran-libro-de-los-gatos-jorge-de-cascante.jpg'
 ---
 
-Después de la maravillosa publicación de “El gran libro de los perros” tenía muchas ganas de leer “El gran libro de los gatos”. Sabía que no me podía defraudar porque Cascante lo hace todo con mucho mimo y es incapaz de editar un libro poco cuidado y sin arte. Y así ha sido. Otra maravilla hecha papel.
+Después de la maravillosa publicación de [“El gran libro de los perros”](/el-gran-libro-de-los-perros) tenía muchas ganas de leer “El gran libro de los gatos”. Sabía que no me podía defraudar porque Cascante lo hace todo con mucho mimo y es incapaz de editar un libro poco cuidado y sin arte. Y así ha sido. Otra maravilla hecha papel.
 
 Este tomo abarca historias de todo tipo, aunque de un temática común: los gatos. Las tramas de estos cuentos, poemas, ensayos y trozos de novela irán relacionadas, cada una, con una figura felina.
 Esa figura felina se representará de una manera u de otra dependiendo del escritor que la mire. Dependerá, como siempre, de su creador.
