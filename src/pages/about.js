@@ -45,6 +45,15 @@ class About extends React.Component {
               </a>
               {'.'}
             </p>
+
+            <small style={{display: "block", marginTop: "5rem"}}>
+              Diseño y código por
+              {' '}
+              <a target="_blank" rel="noopener noreferrer" href={`https://josepmartins.com`}>
+                Josep Martins
+              </a>
+              {'.'}
+            </small>
           </TextContent>
         </ContentWrapper>
       </Layout>
