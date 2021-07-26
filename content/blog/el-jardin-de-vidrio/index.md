@@ -19,4 +19,6 @@ Es una niña sin futuro. Es una niña que debe empezar de cero, que debe aprende
 
 Que no os engañe la novela: este libro es un manotazo; es un darse cuenta de la realidad. Este libro es una posibilidad en un momento real: es una explicación histórica, social, cultural e incluso visualmente femenina de lo que sucedió en Chisináu durante los últimos años de la ocupación soviética.
 
+-
+
 No puedo decir que me haya gustado más esta historia que “El verano en que mi madre tuvo los ojos verdes”. Tampoco creo que se tenga que comparar una novela con la otra (son totalmente diferentes). A mí con alabar a Tatiana y decir que me parece una de las escritoras más maravillosas que hay dentro de la literatura contemporánea me parece suficiente.
