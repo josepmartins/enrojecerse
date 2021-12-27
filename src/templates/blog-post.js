@@ -57,6 +57,7 @@ const HeaderImage = styled.div`
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
+    const image = post.frontmatter.cover
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
 
@@ -65,7 +66,7 @@ class BlogPostTemplate extends React.Component {
         <SEO
           title={post.frontmatter.title + ' de ' + post.frontmatter.author}
           description={post.frontmatter.description || post.excerpt}
-          image={post.frontmatter.cover.childImageSharp.resize.src}
+          image={image ? image.childImageSharp.resize.src : null}
         />
         <Hero>
           <TextHero tag="h1">{post.frontmatter.title.toUpperCase()}</TextHero>
@@ -74,10 +75,10 @@ class BlogPostTemplate extends React.Component {
         <Wrapper>
           <Header>
             <HeaderImage>
-              {!!post.frontmatter.cover ?
+              {!!image ?
                 <Image
                   alt={'Cubierta del libro ' + post.frontmatter.title + ' escrito por ' + post.frontmatter.author}
-                  fixed={post.frontmatter.cover.childImageSharp.sizes}
+                  fixed={image.childImageSharp.sizes}
                   style={{
                     width: '100%',
                     height: '100%',
