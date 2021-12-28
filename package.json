@@ -37,7 +37,6 @@
     "styled-components": "^4.3.2"
   },
   "devDependencies": {
-    "gh-pages": "^2.1.1",
     "prettier": "^1.18.2",
     "resize-observer-polyfill": "^1.5.1"
   },
@@ -54,7 +53,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public --branch gh-pages",
+    "deploy": "gatsby build",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
