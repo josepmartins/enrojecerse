@@ -11,7 +11,10 @@ class BlogIndex extends React.Component {
 
     return (
       <Layout>
-        <SEO title="Todas las reseñas" />
+        <SEO
+          title="Todas las reseñas"
+          image={data.fileName.childImageSharp.fluid.src}
+        />
         <ul>
           {posts.map(({ node }, index) => {
             const title = node.frontmatter.title || node.fields.slug
@@ -33,6 +36,13 @@ export default BlogIndex
 
 export const pageQuery = graphql`
   query {
+    fileName: file(relativePath: { eq: "enrojecerse.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1000) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {

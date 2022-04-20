@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import TextHero from "../components/text-hero"
-import TextContent  from "../components/text-content"
+import TextContent from "../components/text-content"
 import Image from "gatsby-image"
 import styled from "styled-components"
 
@@ -12,7 +12,7 @@ const ContentWrapper = styled.div`
   padding-bottom: 25vh;
 
   @media (min-width: 1024px) {
-    max-width: calc((100/3) * 2 * 1%);
+    max-width: calc((100 / 3) * 2 * 1%);
   }
 `
 
@@ -23,36 +23,52 @@ class About extends React.Component {
 
     return (
       <Layout date="Hola, bienvenidas a">
-        <SEO
-          title="Sobre mí"
-          image={data.fileName.childImageSharp.fluid}
-        />
+        <SEO title="Sobre mí" image={data.fileName.childImageSharp.fluid.src} />
         <TextHero tag="h1">ENROJECERSE</TextHero>
         <Image fluid={data.fileName.childImageSharp.fluid} alt="" />
         <ContentWrapper>
           <TextContent>
             <p>Me llamo Laura.</p>
-            <p>Y aunque nunca me han gustado las descripciones personales, aquí estoy: hecha un ovillo, pasando las páginas de cualquier libro, en el sofá de mi casa. Acompañada de un café caliente. “¿Siempre?”, te preguntarás. “Siempre que leas esto”, te responderé. Aunque, a decir verdad, a veces me levanto y cocino algún dulce. Otras -no tantas otras-, escribo. Y aquí, en esta parte del mundo, es donde encontrarás el resultado de este retórico desorden. Soy libra, así que… bienvenido a mi relatividad.</p>
             <p>
-              Me podéis encontrar en
-              {' '}
-              <a target="_blank" rel="noopener noreferrer" href={`https://instagram.com/${social.instagram}`}>
+              Y aunque nunca me han gustado las descripciones personales, aquí
+              estoy: hecha un ovillo, pasando las páginas de cualquier libro, en
+              el sofá de mi casa. Acompañada de un café caliente. “¿Siempre?”,
+              te preguntarás. “Siempre que leas esto”, te responderé. Aunque, a
+              decir verdad, a veces me levanto y cocino algún dulce. Otras -no
+              tantas otras-, escribo. Y aquí, en esta parte del mundo, es donde
+              encontrarás el resultado de este retórico desorden. Soy libra, así
+              que… bienvenido a mi relatividad.
+            </p>
+            <p>
+              Me podéis encontrar en{" "}
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href={`https://instagram.com/${social.instagram}`}
+              >
                 Instagram
               </a>
-              {' o '}
-              <a target="_blank" rel="noopener noreferrer" href={`https://goodreads.com/${social.goodreads}`}>
+              {" o "}
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href={`https://goodreads.com/${social.goodreads}`}
+              >
                 Goodreads
               </a>
-              {'.'}
+              {"."}
             </p>
 
-            <small style={{display: "block", marginTop: "5rem"}}>
-              Diseño y código por
-              {' '}
-              <a target="_blank" rel="noopener noreferrer" href={`https://josepmartins.com`}>
+            <small style={{ display: "block", marginTop: "5rem" }}>
+              Diseño y código por{" "}
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href={`https://josepmartins.com`}
+              >
                 Josep Martins
               </a>
-              {'.'}
+              {"."}
             </small>
           </TextContent>
         </ContentWrapper>
@@ -75,7 +91,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         social {
-          instagram,
+          instagram
           goodreads
         }
       }
