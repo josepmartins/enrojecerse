@@ -10,7 +10,7 @@
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.6",
     "fontfaceobserver": "^2.1.0",
-    "gatsby": "^2.20.24",
+    "gatsby": "^5.5.0",
     "gatsby-image": "^2.2.17",
     "gatsby-plugin-catch-links": "^2.3.3",
     "gatsby-plugin-feed": "^2.3.11",
@@ -18,7 +18,7 @@
     "gatsby-plugin-manifest": "^2.2.15",
     "gatsby-plugin-offline": "^2.2.10",
     "gatsby-plugin-react-helmet": "^3.1.6",
-    "gatsby-plugin-sharp": "^2.2.20",
+    "gatsby-plugin-sharp": "^2.14.4",
     "gatsby-plugin-sitemap": "^2.4.3",
     "gatsby-plugin-styled-components": "^3.1.5",
     "gatsby-remark-copy-linked-files": "^2.1.17",
